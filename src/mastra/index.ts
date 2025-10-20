@@ -1,5 +1,4 @@
 import { Mastra } from '@mastra/core';
-import { LibSQLStore } from '@mastra/libsql';
 import { researchWorkflow } from './workflows/researchWorkflow';
 import { learningExtractionAgent } from './agents/learningExtractionAgent';
 import { evaluationAgent } from './agents/evaluationAgent';
@@ -9,9 +8,7 @@ import { webSummarizationAgent } from './agents/webSummarizationAgent';
 import { generateReportWorkflow } from './workflows/generateReportWorkflow';
 
 export const mastra = new Mastra({
-  storage: new LibSQLStore({
-    url: 'file:../mastra.db',
-  }),
+  // Using in-memory storage (no persistence)
   agents: {
     researchAgent,
     reportAgent,
